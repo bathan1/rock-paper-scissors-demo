@@ -19,37 +19,79 @@ function playRound(playerSelection, computerSelection) {
     switch(playerSelection) {
         case "rock":
             if (computerSelection == "scissors") {
-                return "You Win! Rock beats Scissors";
+                console.log("You Win! Rock beats Scissors");
+                return 1;
             }
             else if (computerSelection == "rock") {
-                return "You Tie! Rock ties Rock";
+                console.log("You Tie! Rock ties Rock");
+                return 0;
             }
             else {
-                return "You Lose! Paper beats Rock";
+                console.log("You Lose! Paper beats Rock");
+                return -1;
             }
         case "scissors":
             if (computerSelection == "scissors") {
-                return "You Tie! Scissors ties Scissors";
+                console.log("You Tie! Scissors ties Scissors");
+                return 0;
             }
             else if (computerSelection == "rock") {
-                return "You Lose! Rock beats Scissors";
+                console.log("You Lose! Rock beats Scissors");
+                return -1;
             }
             else {
-                return "You Win! Scissors beats Paper";
+                console.log("You Win! Scissors beats Paper");
+                return 1;
             }   
         case "paper":
             if (computerSelection == "scissors") {
-                return "You Lose! Scissors beats Paper";
+                console.log("You Lose! Scissors beats Paper");
+                return -1;
             }
             else if (computerSelection == "rock") {
-                return "You Win! Paper beats Rock";
+                console.log("You Win! Paper beats Rock");
+                return 1;
             }
             else {
-                return "You Tie! Paper ties Paper";
+                console.log("You Tie! Paper ties Paper");
+                return 0;
             }   
     }    
 }
 
-let playerSelection = "paper"
-let computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection))
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+
+    let playerSelection;
+    while (playerScore < 3 && computerScore < 3) {
+        while (playerSelection !== "rock" && playerSelection !== "scissors" && playerSelection !== "paper") {
+            playerSelection = prompt("Enter your choice:")
+            playerSelection = playerSelection.toLowerCase();
+            computerSelection = getComputerChoice();
+        }
+        gameResult = playRound(playerSelection, computerSelection);
+    
+        if (gameResult == -1) {
+            computerScore++;
+        }
+        if (gameResult == 1) {
+            playerScore++;
+        }
+
+        playerSelection = null;
+    }
+
+    if (playerScore == 3) {
+        console.log("Congrats, you win!");
+    }
+    else {
+        console.log("You lost, better luck next time!  :(");
+    }
+}
+
+function main () {
+    game();
+}
+
+main();
