@@ -1,3 +1,53 @@
+body {
+    background-color: #E3E3E3;
+}
+
 #gameButtons {
     display:flex;
+    justify-content:center;
+    align-items:center;
+    height: 100vh;
+    gap: 25px;
+}
+
+.userButton {
+    flex-basis: 500px;
+    min-height: 500px;
+}
+
+#rock {
+    background-color: #c5d5cb;
+}
+
+#paper {
+    background-color: #e3e0cf;
+}
+
+#scissors {
+    background-color: #9fa8a3;
+}
+
+#gameInfo {
+    background-color:red;
+
+    display:flex;
+    justify-content: space-between;
+
+    margin-left: 180px;
+    margin-right: 180px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    min-height: 15vh;
+}
+
+.infoMsg {
+    background-color:blue;
+    flex-basis: 150px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding: 20px;
+
 }

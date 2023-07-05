@@ -121,6 +121,7 @@ function game() {
             computerScore = 0;
         } else if (computerScore == 5) {
             const gameOverMsg = document.createElement('div');
+            gameOverMsg.className = "infoMsg";
             gameOverMsg.id = 'gameOver';
             gameOverMsg.textContent = "Better luck next time!";
             gameInfo?.appendChild(gameOverMsg);
