@@ -1,5 +1,5 @@
 function getComputerChoice() {
-    num = Math.floor(Math.random() * 3) + 1
+    let num = Math.floor(Math.random() * 3) + 1
 
     if (num == 1) {
         return "Rock";
@@ -12,9 +12,8 @@ function getComputerChoice() {
     }
 }
 
-function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase();
-    computerSelection = computerSelection.toLowerCase();
+function playRound(playerSelection) {
+    let computerSelection = getComputerChoice.toLowerCase();
 
     switch(playerSelection) {
         case "rock":
@@ -89,3 +88,19 @@ function game() {
         console.log("You lost, better luck next time!  :(");
     }
 }
+
+
+
+const rockButton = document.querySelector('#rock');
+const paperButton = document.querySelector('#paper');
+const scissorsButton = document.querySelector('#scissors');
+
+rockButton.addEventListener('click', () => {
+    playRound("rock");
+});
+paperButton.addEventListener('click', () => {
+    playRound("paper");
+});
+scissorsButton.addEventListener('click', () => {
+    playRound("scissors");
+}));
