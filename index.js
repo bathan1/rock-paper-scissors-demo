@@ -90,6 +90,10 @@ function game() {
     });
 
     function handleRoundDecision(decision) {
+        const checkGameOver = document.getElementById('gameOver');
+        if (checkGameOver !== null) {
+            gameInfo?.removeChild(checkGameOver);
+        }
 
         if (decision == 1) {
             userScore++;
@@ -104,6 +108,7 @@ function game() {
 
         if (userScore == 5) {
             const gameOverMsg = document.createElement('div');
+            gameOverMsg.id = 'gameOver';
             gameOverMsg.textContent = "Congrats, you win!";
             gameInfo.appendChild(gameOverMsg);
 
@@ -114,6 +119,7 @@ function game() {
             computerScore = 0;
         } else if (computerScore == 5) {
             const gameOverMsg = document.createElement('div');
+            gameOverMsg.id = 'gameOver';
             gameOverMsg.textContent = "Better luck next time!";
             gameInfo.appendChild(gameOverMsg);
 
@@ -126,11 +132,6 @@ function game() {
         
     }
 }
-
-
-
-
-
 
 
 game();
