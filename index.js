@@ -73,36 +73,36 @@ function game() {
         // @ts-ignore
     rockButton.addEventListener('click', () => {
         roundDecision = playRound("rock");
+        handleRoundDecision(roundDecision);
     });
     // @ts-ignore
     paperButton.addEventListener('click', () => {
         roundDecision = playRound("paper");
+        handleRoundDecision(roundDecision)
     });
     // @ts-ignore
     scissorsButton.addEventListener('click', () => {
         roundDecision = playRound("scissors");
+        handleRoundDecision(roundDecision)
     });
 
-    if (roundDecision == 1) {
-        // @ts-ignore
-        userScore++;
+    function handleRoundDecision(decision) {
+        if (decision == 1) {
+            userScore++;
+        } else if (decision == -1) {
+            computerScore++;
+        }
+
         // @ts-ignore
         userScoreDisplay.textContent = userScore;
-    }
-    else if (roundDecision == -1) {
-        // @ts-ignore
-        computerScore++;
         // @ts-ignore
         computerScoreDisplay.textContent = computerScore;
     }
-    
 
     if (userScore == 3) {
-        console.log("Congrats, you win!");
-    }
-    else {
-        console.log("You lost, better luck next time!  :(");
+        console.log("congrats you win");
+    } else if (computerScore == 3) {
+        console.log("better luck next time");
     }
 }
-
 game();
