@@ -13,7 +13,7 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection) {
-    let computerSelection = getComputerChoice.toLowerCase();
+    let computerSelection = getComputerChoice().toLowerCase();
 
     switch(playerSelection) {
         case "rock":
@@ -103,4 +103,4 @@ paperButton.addEventListener('click', () => {
 });
 scissorsButton.addEventListener('click', () => {
     playRound("scissors");
-}));
+});
