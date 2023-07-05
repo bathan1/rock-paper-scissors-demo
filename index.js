@@ -67,6 +67,8 @@ function game() {
     const paperButton = document.querySelector('#paper');
     const scissorsButton = document.querySelector('#scissors');
 
+
+    const gameInfo = document.querySelector('#gameInfo');
     const lastPlay = document.querySelector('#lastPlay')
     const userScoreDisplay = document.querySelector('#userScore');
     const computerScoreDisplay = document.querySelector('#computerScore');
@@ -88,6 +90,7 @@ function game() {
     });
 
     function handleRoundDecision(decision) {
+
         if (decision == 1) {
             userScore++;
         } else if (decision == -1) {
@@ -100,14 +103,20 @@ function game() {
         computerScoreDisplay.textContent = "Computer: " + computerScore;
 
         if (userScore == 5) {
-            console.log("congrats you win");
+            const gameOverMsg = document.createElement('div');
+            gameOverMsg.textContent = "Congrats, you win!";
+            gameInfo.appendChild(gameOverMsg);
+
             userScoreDisplay.textContent = "You: ";
             computerScoreDisplay.textContent = "Computer: ";
 
             userScore = 0;
             computerScore = 0;
         } else if (computerScore == 5) {
-            console.log("better luck next time");
+            const gameOverMsg = document.createElement('div');
+            gameOverMsg.textContent = "Better luck next time!";
+            gameInfo.appendChild(gameOverMsg);
+
             userScoreDisplay.textContent = "You: ";
             computerScoreDisplay.textContent = "Computer: ";
 
