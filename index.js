@@ -59,45 +59,50 @@ function playRound(playerSelection) {
 }
 
 function game() {
-    let playerScore = 0;
+    let roundDecision;
+    let userScore = 0;
     let computerScore = 0;
 
     const rockButton = document.querySelector('#rock');
     const paperButton = document.querySelector('#paper');
     const scissorsButton = document.querySelector('#scissors');
 
+    const userScoreDisplay = document.querySelector('#userScore');
+    const computerScoreDisplay = document.querySelector('#computerScore');
+
+        // @ts-ignore
     rockButton.addEventListener('click', () => {
-        playRound("rock");
+        roundDecision = playRound("rock");
     });
+    // @ts-ignore
     paperButton.addEventListener('click', () => {
-        playRound("paper");
+        roundDecision = playRound("paper");
     });
+    // @ts-ignore
     scissorsButton.addEventListener('click', () => {
-        playRound("scissors");
+        roundDecision = playRound("scissors");
     });
 
-    while (playerScore < 3 && computerScore < 3) {
-        while (playerSelection !== "rock" && playerSelection !== "scissors" && playerSelection !== "paper") {
-            playerSelection = prompt("Enter your choice:")
-            playerSelection = playerSelection.toLowerCase();
-            computerSelection = getComputerChoice();
-        }
-        gameResult = playRound(playerSelection, computerSelection);
-    
-        if (gameResult == -1) {
-            computerScore++;
-        }
-        if (gameResult == 1) {
-            playerScore++;
-        }
-
-        playerSelection = null;
+    if (roundDecision == 1) {
+        // @ts-ignore
+        userScore++;
+        // @ts-ignore
+        userScoreDisplay.textContent = userScore;
     }
+    else if (roundDecision == -1) {
+        // @ts-ignore
+        computerScore++;
+        // @ts-ignore
+        computerScoreDisplay.textContent = computerScore;
+    }
+    
 
-    if (playerScore == 3) {
+    if (userScore == 3) {
         console.log("Congrats, you win!");
     }
     else {
         console.log("You lost, better luck next time!  :(");
     }
 }
+
+game();
