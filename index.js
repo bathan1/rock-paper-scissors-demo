@@ -108,6 +108,7 @@ function game() {
 
         if (userScore == 5) {
             const gameOverMsg = document.createElement('div');
+            gameOverMsg.className = "infoMsg";
             gameOverMsg.id = 'gameOver';
             gameOverMsg.textContent = "Congrats, you win!";
             gameInfo?.appendChild(gameOverMsg);

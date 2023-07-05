@@ -1,5 +1,6 @@
 body {
-    background-color: #E3E3E3;
+    background-color: #94618E;
+    font-family: 'Cascadia Code';
 }
 
 #gameButtons {
@@ -8,11 +9,16 @@ body {
     align-items:center;
     height: 100vh;
     gap: 25px;
+
 }
 
 .userButton {
     flex-basis: 500px;
     min-height: 500px;
+
+    font-family: 'Cascadia Code';
+    font-size: large;
+    font-weight: bolder;
 }
 
 #rock {
@@ -28,7 +34,7 @@ body {
 }
 
 #gameInfo {
-    background-color:red;
+    background-color:#49274A;
 
     display:flex;
     justify-content: space-between;
@@ -41,7 +47,7 @@ body {
 }
 
 .infoMsg {
-    background-color:blue;
+    background-color:#F8EEE7;
     flex-basis: 150px;
 
     display:flex;
@@ -49,5 +55,6 @@ body {
     align-items:center;
 
     padding: 20px;
-
+    margin: 5px;
+    border: 2px solid black;
 }
