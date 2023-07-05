@@ -110,9 +110,11 @@ function game() {
             const gameOverMsg = document.createElement('div');
             gameOverMsg.id = 'gameOver';
             gameOverMsg.textContent = "Congrats, you win!";
-            gameInfo.appendChild(gameOverMsg);
+            gameInfo?.appendChild(gameOverMsg);
 
+            // @ts-ignore
             userScoreDisplay.textContent = "You: ";
+            // @ts-ignore
             computerScoreDisplay.textContent = "Computer: ";
 
             userScore = 0;
@@ -121,9 +123,11 @@ function game() {
             const gameOverMsg = document.createElement('div');
             gameOverMsg.id = 'gameOver';
             gameOverMsg.textContent = "Better luck next time!";
-            gameInfo.appendChild(gameOverMsg);
+            gameInfo?.appendChild(gameOverMsg);
 
+            // @ts-ignore
             userScoreDisplay.textContent = "You: ";
+            // @ts-ignore
             computerScoreDisplay.textContent = "Computer: ";
 
             userScore = 0;
