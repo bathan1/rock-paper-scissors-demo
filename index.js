@@ -62,7 +62,20 @@ function game() {
     let playerScore = 0;
     let computerScore = 0;
 
-    let playerSelection;
+    const rockButton = document.querySelector('#rock');
+    const paperButton = document.querySelector('#paper');
+    const scissorsButton = document.querySelector('#scissors');
+
+    rockButton.addEventListener('click', () => {
+        playRound("rock");
+    });
+    paperButton.addEventListener('click', () => {
+        playRound("paper");
+    });
+    scissorsButton.addEventListener('click', () => {
+        playRound("scissors");
+    });
+
     while (playerScore < 3 && computerScore < 3) {
         while (playerSelection !== "rock" && playerSelection !== "scissors" && playerSelection !== "paper") {
             playerSelection = prompt("Enter your choice:")
@@ -88,19 +101,3 @@ function game() {
         console.log("You lost, better luck next time!  :(");
     }
 }
-
-
-
-const rockButton = document.querySelector('#rock');
-const paperButton = document.querySelector('#paper');
-const scissorsButton = document.querySelector('#scissors');
-
-rockButton.addEventListener('click', () => {
-    playRound("rock");
-});
-paperButton.addEventListener('click', () => {
-    playRound("paper");
-});
-scissorsButton.addEventListener('click', () => {
-    playRound("scissors");
-});
