@@ -89,9 +89,3 @@ function game() {
         console.log("You lost, better luck next time!  :(");
     }
 }
-
-function main () {
-    game();
-}
-
-main();
