@@ -12,47 +12,47 @@ function getComputerChoice() {
     }
 }
 
-function playRound(playerSelection) {
+function playRound(playerSelection, lastPlay) {
     let computerSelection = getComputerChoice().toLowerCase();
 
     switch(playerSelection) {
         case "rock":
             if (computerSelection == "scissors") {
-                console.log("You Win! Rock beats Scissors");
+                lastPlay.textContent = "You Win! Rock beats Scissors";
                 return 1;
             }
             else if (computerSelection == "rock") {
-                console.log("You Tie! Rock ties Rock");
+                lastPlay.textContent = "You Tie! Rock ties Rock";
                 return 0;
             }
             else {
-                console.log("You Lose! Paper beats Rock");
+                lastPlay.textContent = "You Lose! Paper beats Rock";
                 return -1;
             }
         case "scissors":
             if (computerSelection == "scissors") {
-                console.log("You Tie! Scissors ties Scissors");
+                lastPlay.textContent = "You Tie! Scissors ties Scissors";
                 return 0;
             }
             else if (computerSelection == "rock") {
-                console.log("You Lose! Rock beats Scissors");
+                lastPlay.textContent = "You Lose! Rock beats Scissors";
                 return -1;
             }
             else {
-                console.log("You Win! Scissors beats Paper");
+                lastPlay.textContent = "You Win! Scissors beats Paper";
                 return 1;
             }   
         case "paper":
             if (computerSelection == "scissors") {
-                console.log("You Lose! Scissors beats Paper");
+                lastPlay.textContent = "You Lose! Scissors beats Paper";
                 return -1;
             }
             else if (computerSelection == "rock") {
-                console.log("You Win! Paper beats Rock");
+                lastPlay.textContent = "You Win! Paper beats Rock";
                 return 1;
             }
             else {
-                console.log("You Tie! Paper ties Paper");
+                lastPlay.textContent = "You Tie! Paper ties Paper";
                 return 0;
             }   
     }    
@@ -67,23 +67,24 @@ function game() {
     const paperButton = document.querySelector('#paper');
     const scissorsButton = document.querySelector('#scissors');
 
+    const lastPlay = document.querySelector('#lastPlay')
     const userScoreDisplay = document.querySelector('#userScore');
     const computerScoreDisplay = document.querySelector('#computerScore');
 
         // @ts-ignore
     rockButton.addEventListener('click', () => {
-        roundDecision = playRound("rock");
+        roundDecision = playRound("rock", lastPlay);
         handleRoundDecision(roundDecision);
     });
     // @ts-ignore
     paperButton.addEventListener('click', () => {
-        roundDecision = playRound("paper");
-        handleRoundDecision(roundDecision)
+        roundDecision = playRound("paper", lastPlay);
+        handleRoundDecision(roundDecision);
     });
     // @ts-ignore
     scissorsButton.addEventListener('click', () => {
-        roundDecision = playRound("scissors");
-        handleRoundDecision(roundDecision)
+        roundDecision = playRound("scissors", lastPlay);
+        handleRoundDecision(roundDecision);
     });
 
     function handleRoundDecision(decision) {
@@ -94,15 +95,33 @@ function game() {
         }
 
         // @ts-ignore
-        userScoreDisplay.textContent = userScore;
+        userScoreDisplay.textContent = "You: " + userScore;
         // @ts-ignore
-        computerScoreDisplay.textContent = computerScore;
-    }
+        computerScoreDisplay.textContent = "Computer: " + computerScore;
 
-    if (userScore == 3) {
-        console.log("congrats you win");
-    } else if (computerScore == 3) {
-        console.log("better luck next time");
+        if (userScore == 5) {
+            console.log("congrats you win");
+            userScoreDisplay.textContent = "You: ";
+            computerScoreDisplay.textContent = "Computer: ";
+
+            userScore = 0;
+            computerScore = 0;
+        } else if (computerScore == 5) {
+            console.log("better luck next time");
+            userScoreDisplay.textContent = "You: ";
+            computerScoreDisplay.textContent = "Computer: ";
+
+            userScore = 0;
+            computerScore = 0;
+        }
+        
     }
 }
+
+
+
+
+
+
+
 game();
